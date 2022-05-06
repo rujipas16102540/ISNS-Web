@@ -1,0 +1,206 @@
+
+.data-table-queue >div:nth-child(3)>div:nth-child(2){
+    display: flex;
+    justify-content: flex-end;
+  }
+.data-table-queue >div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>ul:nth-child(1){
+  cursor: pointer;
+  }
+  
+/* .data-table-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(1){
+    text-align: center;
+    width: 8%;
+  } */
+  .data-table-queue>div:nth-child(2)>div>div>table>thead{
+  text-align: center;
+}
+  .data-table-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(1){
+    width: 20%;
+  }
+  .data-table-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(2){
+    width: 25%;
+  }
+   .data-table-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(3){
+    width: 15%;
+  }
+  .data-table-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(4), th:nth-child(5){
+    width: 20%;
+  }
+  .data-table-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(5){
+    width: 20%;
+  }
+
+  
+.data-table-queue  >div:nth-child(2)>div>div>table>thead{
+    font-size: 1rem;
+  }
+.data-table-queue-hidden>div:nth-child(3)>div:nth-child(1){
+  visibility: hidden;
+}
+.data-table-queue-hidden>div:nth-child(1)>div:nth-child(1){
+  visibility: hidden;
+}
+
+.styleTabQueue{
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(5px);
+   border-radius: 0 0 8px 8px;
+
+}
+
+.data-table-queue>div:nth-child(3)>div:nth-child(2)>div>ul>li.page-item.active .page-link {
+    z-index: 3;
+    color: #212529;
+    /* background-image: linear-gradient(rgb(150,150,150), #F1F1F1, #F1F1F1, rgb(150,150,150)); */
+    background: rgba(255,255,255,0.6);
+    border-color: rgb(150,150,150);
+}
+
+/*  Style approve */
+.data-table-approve-queue  >div:nth-child(2)>div>div>table>thead{
+    font-size: 1rem;
+  }
+.data-table-approve-queue>div:nth-child(2)>div>div>table>thead{
+  text-align: center;
+}
+.data-table-approve-queue >div:nth-child(2)>div>div>table>tbody>tr>td:nth-child(6), td:nth-child(7) {
+    text-align: center;
+}
+.data-table-approve-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(1), th:nth-child(3){
+    width: 15%;
+  }
+.data-table-approve-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(2){
+
+    width: 20%;
+  }
+.data-table-approve-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(4), th:nth-child(5){
+    width: 11%;
+  }
+.data-table-approve-queue >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(6), th:nth-child(7){
+    width: 8%;
+  }
+.data-table-approve-queue>div:nth-child(3)>div:nth-child(2)>div>ul>li.page-item.active .page-link {
+    z-index: 3;
+    color: #212529;
+    background: rgba(255,255,255,0.6);
+    border-color: rgb(150,150,150);
+}
+.data-table-approve-queue >div:nth-child(3)>div:nth-child(2){
+    display: flex;
+    justify-content: flex-end;
+  }
+.data-table-approve-queue >div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>ul:nth-child(1){
+  cursor: pointer;
+  }
+
+
+  /* style progress */
+.data-table-progress  >div:nth-child(2)>div>div>table>thead{
+    font-size: 1rem;
+}
+.data-table-progress>div:nth-child(2)>div>div>table>thead{
+  text-align: center;
+}
+.data-table-progress >div:nth-child(2)>div>div>table>tbody>tr>td:nth-child(2){
+  text-align: center;
+}
+.data-table-progress >div:nth-child(2)>div>div>table>tbody>tr>td:nth-child(3) {
+  text-align: center;
+}
+
+.data-table-progress >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(1){
+  width: 25%;
+}
+.data-table-progress >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr> th:nth-child(3){
+  width: 15%;
+}
+.data-table-progress >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(2){
+  width: 20%;
+}
+.data-table-progress >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(4){
+  width: 15%;
+}
+.data-table-progress >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(5){
+  width: 15%;
+}
+.data-table-progress >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(6){
+  width: 10%;
+}
+
+.data-table-progress>div:nth-child(3)>div:nth-child(2)>div>ul>li.page-item.active .page-link {
+    z-index: 3;
+    color: #212529;
+    background: rgba(255,255,255,0.6);
+    border-color: rgb(150,150,150);
+}
+.data-table-progress >div:nth-child(3)>div:nth-child(2){
+    display: flex;
+    justify-content: flex-end;
+}
+.data-table-progress >div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>ul:nth-child(1){
+  cursor: pointer;
+}
+
+/* style payment */
+.data-table-payment  >div:nth-child(2)>div>div>table>thead{
+    font-size: 1rem;
+}
+.data-table-payment>div:nth-child(2)>div>div>table>thead{
+  text-align: center;
+}
+.data-table-payment >div:nth-child(2)>div>div>table>tbody>tr>td:nth-child(2), td:nth-child(4),td:nth-child(5){
+  text-align: center;
+}
+.data-table-payment >div:nth-child(2)>div>div>table>tbody>tr>td:nth-child(1), td:nth-child(3){
+  text-align: unset;
+}
+
+.data-table-payment >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(1){
+  width: 20%;
+}
+.data-table-payment >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(3){
+  width: 20%;
+}
+.data-table-payment >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(2){
+  width: 10%;
+}
+.data-table-payment >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(4){
+  width: 10%;
+}
+.data-table-payment >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(5){
+  width: 10%;
+}
+.data-table-payment >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(7){
+  width: 10%;
+}
+.data-table-payment >div:nth-child(2)>div>div>table>thead:nth-child(1)>tr>th:nth-child(6){
+  width: 20%;
+}
+
+.data-table-payment >div:nth-child(3)>div:nth-child(2)>div>ul>li.page-item.active .page-link {
+    z-index: 3;
+    color: #212529;
+    background: rgba(255,255,255,0.6);
+    border-color: rgb(150,150,150);
+}
+.data-table-payment >div:nth-child(3)>div:nth-child(2){
+    display: flex;
+    justify-content: flex-end;
+}
+.data-table-payment >div:nth-child(3)>div:nth-child(2)>div:nth-child(1)>ul:nth-child(1){
+  cursor: pointer;
+}
+
+.status-green{
+  background-color: green;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.status-red{
+  background-color: red;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}

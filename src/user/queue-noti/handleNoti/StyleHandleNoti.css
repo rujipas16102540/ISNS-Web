@@ -1,0 +1,11 @@
+.bg-header {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    border: 1px solid #fff;
+    margin-bottom: 2%;
+    height: 5vh;
+    align-items: center;
+    display: flex;
+    padding: 1.25rem;
+}

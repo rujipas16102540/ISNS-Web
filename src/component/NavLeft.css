@@ -1,0 +1,105 @@
+
+ .header{
+    padding: 40px;
+    color: white;
+    background-color: black;
+   text-align: center;
+   font-size: 30px;
+   font-weight: bold;
+    max-height: 20vh;
+  }
+  
+  .left>a{
+   text-decoration: none;
+  }  
+ .row{
+   margin: 0px;
+ }
+ .row>div{
+   padding: 0px;
+ }
+ [class*='col-']{
+   width: 100%;
+ }
+ @media only screen and (min-width:600px){
+   /*for tablet*/
+   .col-s-1{width: 8.33%}
+   .col-s-2{width: 16.66%}
+   .col-s-3{width: 25%}
+   .col-s-4{width: 33.3%}
+   .col-s-5{width: 41.66%}
+   .col-s-6{width: 50%}
+   .col-s-7{width: 58.33%}
+   .col-s-8{width: 66.66%}
+   .col-s-9{width: 75%}
+   .col-s-10{width: 83.33%}
+   .col-s-11{width: 91.66%}
+   .col-s-12{width: 100%}
+ }
+ @media only screen and (min-width:768px){
+   /*for desktop*/
+   .col-1{width: 8.33%}
+   .col-2{width: 16.66%}
+   .col-3{width: 25%}
+   .col-4{width: 33.3%}
+   .col-5{width: 41.66%}
+   .col-6{width: 50%}
+   .col-7{width: 58.33%}
+   .col-8{width: 66.66%}
+   .col-9{width: 75%}
+   .col-10{width: 83.33%}
+   .col-11{width: 91.66%}
+   .col-12{width: 100%}
+ }
+ 
+ .left{
+   /* width: 225px; */
+  position: fixed;
+  padding: 0px;
+  /* text-align: center; */
+  color: black;
+  /* background: rgb(0,0,0,0.8); */
+   /* background-image: linear-gradient(rgb(99, 99, 99),  #eee, rgb(99, 99, 99)); */
+   background: rgba(255,255,255,0.6);
+   backdrop-filter: blur(5px);
+  height: 100vh;
+  width: 100vw;
+  box-shadow: 1px 0px 5px black;
+}
+
+ .NavLeft {
+   cursor: pointer;
+   padding: 10px;
+   font-size: 1em;
+   color: black;
+   text-decoration: none;
+ }
+ 
+ .NavLeft:hover {
+   font-weight: bolder;
+   /* background-color: greenyellow; */
+ }
+ 
+ .NavLeftActive {
+   font-weight: bolder;
+   padding-left: 30px;
+   align-items: center;
+   display: flex;
+   height: 50px;
+   /* border-radius: 30px 0 0 30px; */
+   font-size: 1.2em;
+   color: black;
+   background-color: #eee;
+ }
+ 
+ .modal-dialog .modal-content {
+   border-radius: .3125em;
+ }
+
+ .sticky {
+    /* text-align: center; */
+    position: sticky;
+    top: 0px;
+    z-index: 100;
+    /* width: 100vw; */
+}
