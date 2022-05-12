@@ -539,7 +539,7 @@ export default class NavLeftUser extends Component {
                             แก้ไขข้อมูล
                         </Button>
                     </div>
-                    {userInfo.type_noti === "queue_noti" || userInfo.type_noti === "noti" ? <div style={{ justifyContent: "center", display: "flex", marginBottom: "5%" }}>
+                    {userInfo.type_noti === "true" ? <div style={{ justifyContent: "center", display: "flex", marginBottom: "5%" }}>
                         <Button className="btn-cancel" onClick={() => { this.backToSelect(userInfo.username) }}>
                             ยกเลิกใช้บริการ
                         </Button>
