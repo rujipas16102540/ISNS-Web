@@ -112,8 +112,8 @@ export default class news extends Component {
                             </Col>
                             <Col sm={10}>
                                 <div style={{ margin: '1% 5%' }}>
-                                    <div style={{ marginBottom: "15px", fontSize: "2em", fontWeight: "bold", padding: "10px 20px", color: "white", borderBottom: "2px solid white" }} >ข่าวสาร</div>
-                                    <Tabs defaultActiveKey="news" className="editTabsCus">
+                                    <div style={{ marginBottom: "15px", fontSize: "2em", fontWeight: "bold", padding: "10px 20px", color: "black", borderBottom: "2px solid black" }} >ข่าวสาร</div>
+                                    <Tabs defaultActiveKey="news" className="editTabsNews">
                                         <Tab eventKey="news" title="ประวัติข่าวสาร" className="styleTabNews">
                                             {this.state.data_news.map((index, i) =>
                                                 <div style={{

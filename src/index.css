@@ -10,16 +10,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-f30px{
+f30px {
   font-size: 25px;
   font-weight: bold;
 }
 
-f50px{
+f50px {
   font-size: 50px;
   font-weight: bold;
 }
-h4{
+
+h4 {
   display: contents;
 }
 
@@ -31,43 +32,47 @@ code {
 
 @media only screen and (max-width: 1024px) {
 
-  body { 
-     font-size: 0.8em; 
+  body {
+    font-size: 0.8em;
   }
-  f30px { 
-    font-size: 1.2em; 
- }
- f50px{
-  font-size: 2em;
-  font-weight: bold;
-}
- .btn {
-  font-size: 0.2em; 
- }
 
- .form-control {
-  font-size: 0.8em; 
- }
+  f30px {
+    font-size: 1.2em;
+  }
+
+  f50px {
+    font-size: 2em;
+    font-weight: bold;
+  }
+
+  .btn {
+    font-size: 0.5em;
+  }
+
+  .form-control {
+    font-size: 0.8em;
+  }
 }
 
 .form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: rgb(150, 150, 150);
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgb(150 150 150 / 50%);
+  color: #495057;
+  background-color: #fff;
+  border-color: rgb(150, 150, 150);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(150 150 150 / 50%);
 }
 
 /* ปรับแต่ง <Button> Confirm */
-.btn-confirm{
-   background: rgba(0, 155, 0,0.7);
-    /* background-image: linear-gradient(rgb(0, 155, 0),rgb(0, 155, 0),rgb(0, 55, 0)); */
-    border-color: rgb(0, 155, 0);
-    color: white ;
-    border-radius: 5px;
-    font-weight: bold ;
+.btn-confirm {
+  background: rgba(0, 155, 0, 0.7);
+  /* background-image: linear-gradient(rgb(0, 155, 0),rgb(0, 155, 0),rgb(0, 55, 0)); */
+  border-color: rgb(0, 155, 0);
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
 
 }
+
 /* .inside-btn-confirm{
   background-image: linear-gradient(rgba(0, 255, 0, 0.6),rgba(0,155,0,0.6),rgba(0,155,0,0.6));
   border-radius: 5px;
@@ -75,123 +80,132 @@ code {
   color: white;
   font-weight: bold ;
 } */
-.btn-confirm:focus{
-    background: rgb(0, 155, 0);
-    border-color: rgba(0, 155, 0, 0.5);
-    color: white ;
-    box-shadow: 0 0 0 0.2rem rgba(0, 155, 0, 0.5);
-}
-.btn-confirm:hover{
-    background: rgb(0, 155, 0);
-    border: 1px solid rgba(0, 155, 0, 0.5);
-    color: white;
-}
-.btn-confirm:not(:disabled):not(.disabled):active{
-     background: rgb(0, 155, 0);
-     box-shadow: 0 0 0 0.2rem rgba(0, 155, 0, 0.5);
+.btn-confirm:focus {
+  background: rgb(0, 155, 0);
+  border-color: rgba(0, 155, 0, 0.5);
+  color: white;
+  box-shadow: 0 0 0 0.2rem rgba(0, 155, 0, 0.5);
 }
 
-.btn-confirm:not(:disabled):not(.disabled):active:focus{
-    box-shadow: 0 0 0 0.2rem rgba(0, 155, 0, 0.5);
+.btn-confirm:hover {
+  background: rgb(0, 155, 0);
+  border: 1px solid rgba(0, 155, 0, 0.5);
+  color: white;
 }
 
-.btn-confirm:not(:disabled):not(.disabled):active{
-    color: white;
-    background-color: rgba(0, 155, 0, 0.5);
-    border-color: rgba(0, 155, 0, 0.5);
+.btn-confirm:not(:disabled):not(.disabled):active {
+  background: rgb(0, 155, 0);
+  box-shadow: 0 0 0 0.2rem rgba(0, 155, 0, 0.5);
+}
+
+.btn-confirm:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 155, 0, 0.5);
+}
+
+.btn-confirm:not(:disabled):not(.disabled):active {
+  color: white;
+  background-color: rgba(0, 155, 0, 0.5);
+  border-color: rgba(0, 155, 0, 0.5);
 }
 
 /* ปรับแต่ง <Button> Cancel and Delete*/
-.btn-cancel{
-    font-weight: bold ;
+.btn-cancel {
+  font-weight: bold;
 
-   background: rgba(155, 0, 0,0.7);
-    /* background-image: linear-gradient(rgb(0, 155, 0),rgb(0, 155, 0),rgb(0, 55, 0)); */
-    border-color: rgb(155, 0, 0);
-    color: white;
-    border-radius: 5px;
-}
-.btn-cancel:focus{
-    background: rgb(155, 0, 0);
-    border-color: rgba(155, 0, 0, 0.5);
-    color: white;
-    box-shadow: 0 0 0 0.2rem rgba(155, 0, 0, 0.5);
-}
-.btn-cancel:hover{
-    background: rgb(155, 0, 0);
-    border: 1px solid rgba(155, 0, 0, 0.5);
-    color: white;
-}
-.btn-cancel:not(:disabled):not(.disabled):active{
-     background: rgb(155, 0, 0);
-     box-shadow: 0 0 0 0.2rem rgba(155, 0, 0, 0.5);
+  background: rgba(155, 0, 0, 0.7);
+  /* background-image: linear-gradient(rgb(0, 155, 0),rgb(0, 155, 0),rgb(0, 55, 0)); */
+  border-color: rgb(155, 0, 0);
+  color: white;
+  border-radius: 5px;
 }
 
-.btn-cancel:not(:disabled):not(.disabled):active:focus{
-    box-shadow: 0 0 0 0.2rem rgba(155, 0, 0, 0.5);
+.btn-cancel:focus {
+  background: rgb(155, 0, 0);
+  border-color: rgba(155, 0, 0, 0.5);
+  color: white;
+  box-shadow: 0 0 0 0.2rem rgba(155, 0, 0, 0.5);
 }
 
-.btn-cancel:not(:disabled):not(.disabled):active{
-    color: white;
-    background-color: rgba(155, 0, 0, 0.5);
-    border-color: rgba(155, 0, 0, 0.5);
+.btn-cancel:hover {
+  background: rgb(155, 0, 0);
+  border: 1px solid rgba(155, 0, 0, 0.5);
+  color: white;
+}
+
+.btn-cancel:not(:disabled):not(.disabled):active {
+  background: rgb(155, 0, 0);
+  box-shadow: 0 0 0 0.2rem rgba(155, 0, 0, 0.5);
+}
+
+.btn-cancel:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.2rem rgba(155, 0, 0, 0.5);
+}
+
+.btn-cancel:not(:disabled):not(.disabled):active {
+  color: white;
+  background-color: rgba(155, 0, 0, 0.5);
+  border-color: rgba(155, 0, 0, 0.5);
 }
 
 /* ปรับแต่ง <Button> Edit */
-.btn-edit{
-    font-weight: bold ;
+.btn-edit {
+  font-weight: bold;
 
-    border-radius: 5px;
-    background: rgba(200, 200, 0,0.7);
-    border-color: rgb(200, 200, 0);
-    color: white ;
-}
-.btn-edit:focus{
-    background: rgb(200, 200, 0);
-    border-color: rgba(200, 200, 0, 0.5);
-    color: white;
-    box-shadow: 0 0 0 0.2rem rgba(200, 200, 0, 0.5);
-}
-.btn-edit:hover{
-    background: rgb(200, 200, 0);
-    border: 1px solid rgba(200, 200, 0, 0.5);
-    color: white;
-}
-.btn-edit:not(:disabled):not(.disabled):active{
-     background: rgb(200, 200, 0);
-     box-shadow: 0 0 0 0.2rem rgba(200, 200, 0, 0.5);
+  border-radius: 5px;
+  background: rgba(200, 200, 0, 0.7);
+  border-color: rgb(200, 200, 0);
+  color: white;
 }
 
-.btn-edit:not(:disabled):not(.disabled):active:focus{
-    box-shadow: 0 0 0 0.2rem rgba(200, 200, 0, 0.5);
+.btn-edit:focus {
+  background: rgb(200, 200, 0);
+  border-color: rgba(200, 200, 0, 0.5);
+  color: white;
+  box-shadow: 0 0 0 0.2rem rgba(200, 200, 0, 0.5);
 }
 
-.btn-edit:not(:disabled):not(.disabled):active{
-    color: white;
-    background-color: rgba(200, 200, 0, 0.5);
-    border-color: rgba(200, 200, 0, 0.5);
+.btn-edit:hover {
+  background: rgb(200, 200, 0);
+  border: 1px solid rgba(200, 200, 0, 0.5);
+  color: white;
 }
+
+.btn-edit:not(:disabled):not(.disabled):active {
+  background: rgb(200, 200, 0);
+  box-shadow: 0 0 0 0.2rem rgba(200, 200, 0, 0.5);
+}
+
+.btn-edit:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.2rem rgba(200, 200, 0, 0.5);
+}
+
+.btn-edit:not(:disabled):not(.disabled):active {
+  color: white;
+  background-color: rgba(200, 200, 0, 0.5);
+  border-color: rgba(200, 200, 0, 0.5);
+}
+
 .swal2-styled.swal2-confirm {
-     /* background-image: linear-gradient(green, #F1F1F1, green) !important; */
-     background: #28a745 !important;
-    color: white !important;
-    border: 1px solid #28a745 !important;
-    border-radius: 25px !important;
+  /* background-image: linear-gradient(green, #F1F1F1, green) !important; */
+  background: #28a745 !important;
+  color: white !important;
+  border: 1px solid #28a745 !important;
+  border-radius: 25px !important;
 }
 
 .swal2-styled.swal2-cancel {
-    /* background-image: linear-gradient(rgb(150,150,150), #F1F1F1, #F1F1F1, rgb(150,150,150)) !important; */
-     background: #dc3545 !important;
-    color: white!important;
-    border: 1px solid #dc3545 !important;
-    border-radius: 25px !important;
+  /* background-image: linear-gradient(rgb(150,150,150), #F1F1F1, #F1F1F1, rgb(150,150,150)) !important; */
+  background: #dc3545 !important;
+  color: white !important;
+  border: 1px solid #dc3545 !important;
+  border-radius: 25px !important;
 
 }
 
-a{
+a {
   color: #f1f1f1;
 }
 
-a:hover{
+a:hover {
   color: #f1f1f1;
 }

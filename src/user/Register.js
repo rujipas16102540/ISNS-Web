@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Row, Col, Button, Image, Modal, InputGroup } from 'react-bootstrap'
+import { Form, Row, Col, Button, Image, Modal, InputGroup, Container } from 'react-bootstrap'
 import Axios from 'axios'
 import { API_URL } from '../config/config'
 import Swal from 'sweetalert2'
@@ -321,7 +321,7 @@ export default class Register extends Component {
                                     </Col>
                                 </Row>
                                 <Row >
-                                    <Col sm={3} style={{ padding: "5px" }}>
+                                    <div style={{ padding: "5px", width: "24%" }}>
                                         <Form.Group>
                                             <Form.Label>คำนำหน้า</Form.Label>
                                             <Form.Control as="select" onChange={e => this.handleChange('prefix', e.target.value)} >
@@ -331,38 +331,42 @@ export default class Register extends Component {
                                                 <option value="นางสาว">นางสาว</option>
                                             </Form.Control>
                                         </Form.Group>
-                                    </Col>
-                                    <Col sm={5} style={{ padding: "5px" }}>
+                                    </div>
+                                    <div style={{ padding: "5px", width: "38%" }}>
                                         <Form.Group >
                                             <Form.Label>ชื่อ</Form.Label>
                                             <Form.Control maxLength={50} placeholder="ชื่อ" onChange={(e) => this.handleChange("first_name", e.target.value)} value={this.state.userInfo.first_name} />
                                         </Form.Group>
-                                    </Col>
-                                    <Col sm={4} style={{ padding: "5px" }}>
+                                    </div>
+                                    <div style={{ padding: "5px", width: "38%" }}>
                                         <Form.Group >
                                             <Form.Label>นามสกุล</Form.Label>
                                             <Form.Control maxLength={50} placeholder="นามสกุล" onChange={(e) => this.handleChange("last_name", e.target.value)} value={this.state.userInfo.last_name} />
                                         </Form.Group>
-                                    </Col>
+                                    </div>
                                 </Row>
                                 <Row>
-                                    <Col sm={8} style={{ padding: "5px" }}>
+                                    <div style={{ padding: "5px", width: "70%" }} >
                                         <Form.Group >
                                             <Form.Label>อีเมล</Form.Label>
                                             <Form.Control maxLength={50} placeholder="อีเมล" onChange={(e) => this.handleChange("email", e.target.value)} value={this.state.userInfo.email} />
                                         </Form.Group>
-                                    </Col>
-                                    <Col sm={4} style={{ padding: "5px" }}>
+                                    </div>
+                                    <div style={{ padding: "5px", width: "30%" }} >
                                         <Form.Group >
                                             <Form.Label>เบอร์โทร</Form.Label>
                                             <Form.Control maxLength={10} placeholder="เบอร์โทร" onChange={(e) => this.handleChange("phone_number", e.target.value)} value={this.state.userInfo.phone_number} />
                                         </Form.Group>
-                                    </Col>
+                                    </div>
                                 </Row>
-                                <Form.Group style={{ padding: "5px" }} >
-                                    <Form.Label maxLength={100}>ที่อยู่</Form.Label>
-                                    <Form.Control placeholder="ที่อยู่" onChange={(e) => this.handleChange("address", e.target.value)} value={this.state.userInfo.address} />
-                                </Form.Group>
+                                <Row>
+                                    <div style={{ padding: "5px", width: "100%" }}>
+                                        <Form.Group >
+                                            <Form.Label maxLength={100}>ที่อยู่</Form.Label>
+                                            <Form.Control placeholder="ที่อยู่" onChange={(e) => this.handleChange("address", e.target.value)} value={this.state.userInfo.address} />
+                                        </Form.Group>
+                                    </div>
+                                </Row>
                                 <div style={{ justifyContent: 'flex-end', display: 'flex' }}>
                                     <Button style={{ marginRight: "10px" }} className="btn-confirm" onClick={this.handleSubmit} >
                                         {/* <div style={{ backgroundImage: "linear-gradient(rgb(0,255,0),rgb(0,155,0),rgb(0,155,0))", borderRadius: "15px", padding: "0 10px", color: "white", fontWeight: "bold" }}> */}

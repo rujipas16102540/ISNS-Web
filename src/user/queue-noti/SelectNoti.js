@@ -108,17 +108,15 @@ export default class ListOtherServices extends Component {
             rows: this.state.tableRows,
         }
         return (
-            <div>
-                <CardBody >
-                    <MDBDataTable
-                        className="data-table-select"
-                        small
-                        striped
-                        bordered
-                        hover
-                        data={SelectNoti}
-                    />
-                </CardBody>
+            <div style={{ padding: "5%" }}>
+                <MDBDataTable
+                    className="data-table-select"
+                    small
+                    striped
+                    bordered
+                    hover
+                    data={SelectNoti}
+                />
             </div>
         )
     }

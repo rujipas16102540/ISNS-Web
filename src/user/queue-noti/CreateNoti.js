@@ -113,11 +113,11 @@ export default class CreateNoti extends Component {
 
         return (
             <div>
-                <Form style={{ padding: "20px 100px" }}>
+                <Form style={{ padding: "5%" }}>
                     <Row >
                         <Col style={{ width: "10%" }}>
                             <Form.Group>
-                                <Form.Label><h4>ชื่อหัวข้อบริการ</h4></Form.Label>
+                                <Form.Label className="header-create">ชื่อหัวข้อบริการ</Form.Label>
                                 <Form.Control
                                     onChange={(e) => this.handleChange("header", e.target.value)}
                                     placeholder="ชื่อหัวข้อบริการ" />
@@ -127,7 +127,7 @@ export default class CreateNoti extends Component {
                     <Row>
                         <Col >
                             <Form.Group>
-                                <Form.Label><h4>รายละเอียดของบริการ</h4></Form.Label>
+                                <Form.Label className="header-create"> รายละเอียดของบริการ</Form.Label>
                                 <Form.Control
                                     onChange={(e) => this.handleChange("drescription", e.target.value)}
                                     placeholder="รายละเอียดการแจ้งเตือน" />
@@ -137,7 +137,7 @@ export default class CreateNoti extends Component {
                     <Row>
                         <Col >
                             <Form.Group>
-                                <Form.Label><h4>ชื่อองค์กร บริษัท สำนักงาน หรืออื่นๆ</h4></Form.Label>
+                                <Form.Label className="header-create">ชื่อองค์กร บริษัท สำนักงาน หรืออื่นๆ</Form.Label>
                                 <Form.Control
                                     onChange={(e) => this.handleChange("name", e.target.value)}
                                     placeholder="องค์กร บริษัท สำนักงาน และอื่นๆ" />
@@ -146,8 +146,8 @@ export default class CreateNoti extends Component {
                     </Row>
                     <Row >
                         <Col>
-                            <Row>
-                                <h4>ปรับแต่งเพิ่มเติม</h4>
+                            <Row className="header-create">
+                                ปรับแต่งเพิ่มเติม
                             </Row>
                             <Row>
                                 <InputGroup.Prepend>

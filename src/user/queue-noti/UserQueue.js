@@ -26,6 +26,7 @@ import { useMediaQuery } from 'react-responsive'
 import SelectNoti from './SelectNoti';
 import CreateNoti from './CreateNoti';
 import NavLeftUser from '../../component/NavLeftUser';
+import Navb from '../../component/Navbar';
 
 const url = API_URL + '/queue/list_queue';
 
@@ -783,6 +784,7 @@ export default class UserQueue extends Component {
                 </Modal>
                 <Desktop>
                     <div className="UserBG">
+
                         <Row >
                             <Col sm={2} className="infoUser" style={{ height: "auto" }}>
                                 <NavLeftUser />
@@ -922,6 +924,155 @@ export default class UserQueue extends Component {
                         </Row >
                     </div >
                 </Desktop >
+
+                <Mobile>
+
+                    <div className="UserBG">
+
+                        <Row >
+
+                            <Col style={{ color: "#212529" }}>
+                                {userInfo.type_noti === "true" ?
+                                    <div>
+                                        <Navb />
+                                        <div style={{ padding: "2% 5%" }}>
+                                            <CardBody className="styleTabUserQueue">
+                                                <div style={{ fontSize: "x-large" }}>
+                                                    {this.state.lst_noti.header}
+                                                </div>
+                                                <div style={{ fontSize: "large" }}>
+                                                    {this.state.lst_noti.drescription}
+                                                </div>
+                                                <Form >
+                                                    <Row >
+                                                        <div style={{ padding: "5px", width: "26%" }}>
+                                                            <Form.Group controlId="prefix">
+                                                                <Form.Label>คำนำหน้า</Form.Label>
+                                                                <Form.Control
+                                                                    value={this.state.userInfo.prefix} disabled />
+                                                            </Form.Group>
+                                                        </div>
+                                                        <div style={{ padding: "5px", width: "37%" }}>
+                                                            <Form.Group controlId="name">
+                                                                <Form.Label>ชื่อ</Form.Label>
+                                                                <Form.Control
+                                                                    value={this.state.userInfo.first_name} disabled />
+                                                            </Form.Group>
+                                                        </div>
+                                                        <div style={{ padding: "5px", width: "37%" }}>
+                                                            <Form.Group controlId="surname">
+                                                                <Form.Label>นามสกุล</Form.Label>
+                                                                <Form.Control
+                                                                    value={this.state.userInfo.last_name} disabled />
+                                                            </Form.Group>
+                                                        </div>
+                                                    </Row>
+                                                    <Row >
+                                                        <div style={{ padding: "5px", width: "60%" }}>
+                                                            <Form.Group controlId="email">
+                                                                <Form.Label>อีเมล</Form.Label>
+                                                                <Form.Control value={this.state.userInfo.email} disabled />
+                                                            </Form.Group>
+                                                        </div>
+                                                        <div style={{ padding: "5px", width: "40%" }}>
+                                                            <Form.Group controlId="phone_number">
+                                                                <Form.Label>เบอร์โทร</Form.Label>
+                                                                <Form.Control value={this.state.userInfo.phone_number} disabled />
+                                                            </Form.Group>
+                                                        </div>
+                                                    </Row>
+
+                                                    {/* วันเวลาจองคิว */}
+                                                    {this.state.lst_noti.send_message === "true" ?
+                                                        <Row>
+                                                            <div style={{ padding: "5px", width: "70%" }}>
+                                                                <Form.Group>
+                                                                    <Form.Label>วันที่จองคิว</Form.Label>
+                                                                    <div>
+                                                                        <DatePicker
+                                                                            selected={this.state.start_date}
+                                                                            onChange={this.handleChangeDate}
+                                                                            dateFormat="d MMMM yyyy"
+                                                                            minDate={new Date()}
+                                                                            filterDate={date => date.getDay() != 6 && date.getDay() != 0}
+                                                                            className="form-control"
+                                                                            placeholderText="กำหนดการจองคิว"
+                                                                        />
+                                                                    </div>
+                                                                </Form.Group>
+                                                            </div>
+                                                            <div style={{ padding: "5px", width: "30%" }}>
+                                                                < Form.Group >
+                                                                    <Form.Label>เวลาจองคิว </Form.Label>
+                                                                    <Form.Control as="select" onChange={e => this.handleChange('time', e.target.value)}>
+                                                                        <option disabled selected>เลือกเวลา</option>
+                                                                        {this.state.slc_hours.map((index, i) =>
+                                                                            <option value={index}>{index} น.</option>
+                                                                        )}
+                                                                    </Form.Control>
+                                                                </Form.Group>
+                                                            </div>
+                                                        </Row>
+                                                        : <></>}
+                                                    {/* รายละเอียดเพิ่มเติม */}
+                                                    {this.state.lst_noti.comment === "true" ?
+                                                        <Row >
+                                                            <div style={{ padding: "5px", width: "100%" }}>
+                                                                <Form.Group >
+                                                                    <Form.Label> รายละเอียดเพิ่มเติม </Form.Label>
+                                                                    <Form.Control
+                                                                        onChange={(e) => this.handleChange("drescription", e.target.value)}
+                                                                        placeholder="รายละเอียดเพิ่มเติม" />
+                                                                </Form.Group>
+                                                            </div>
+                                                        </Row>
+                                                        : <></>}
+
+                                                    <Row>
+                                                        <div style={{ padding: "5px", width: "70%" }} >
+                                                            <Form.Label>
+                                                                ต้องการแจ้งเตือนผ่าน Line หรือไม่
+                                                            </Form.Label>
+                                                            <InputGroup.Prepend>
+                                                                <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 1)} />
+                                                                <Form.Label style={{ alignItems: "center", display: "flex" }}>ต้องการ</Form.Label>
+                                                                <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 2)} />
+                                                                <Form.Label style={{ alignItems: "center", display: "flex", }}>ไม่ต้องการ</Form.Label>
+                                                            </InputGroup.Prepend>
+                                                        </div>
+                                                        <div style={{ padding: "1%", justifyContent: "flex-end", display: "flex", width: "30%" }} >
+                                                            <Button onClick={this.handleSubmitQueueNoti} style={{ marginRight: "10px" }} className="btn-confirm">
+                                                                จองคิว
+                                                            </Button>
+                                                        </div>
+                                                    </Row>
+                                                </Form>
+                                            </CardBody>
+                                        </div>
+                                    </div> :
+                                    <div>
+                                        <div>
+                                            <Navb />
+                                        </div>
+                                        <div className="p-2">
+
+                                            <Tabs defaultActiveKey="SelectNoti" style={{ borderBottom: "1px solid rgb(150,150,150)", fontSize: "1.2em" }} className="editTabsUserQueue">
+                                                <Tab eventKey="SelectNoti" title="เลือกบริการ" className="styleTabUserQueue">
+                                                    <SelectNoti />
+                                                </Tab>
+                                                <Tab eventKey="CreateNoti" title="สร้างบริการ" className="styleTabUserQueue">
+                                                    <CreateNoti />
+                                                </Tab>
+
+                                            </Tabs>
+                                        </div>
+
+                                    </div>
+                                }
+                            </Col>
+                        </Row >
+                    </div >
+                </Mobile >
             </div >
 
         )

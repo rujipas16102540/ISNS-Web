@@ -27,7 +27,7 @@ export default class Other_service extends Component {
                             </Col>
                             <Col sm={10}>
                                 <div style={{ margin: '1% 5%' }}>
-                                    <div style={{ marginBottom: "15px", fontSize: "2em", fontWeight: "bold", padding: "10px 20px", color: "white", borderBottom: "2px solid white" }}  >การแจ้งเตือนอื่น ๆ</div>
+                                    <div style={{ marginBottom: "15px", fontSize: "2em", fontWeight: "bold", padding: "10px 20px", color: "black", borderBottom: "2px solid black" }}  >การแจ้งเตือนอื่น ๆ</div>
                                     {/* <Tabs defaultActiveKey="listOtherNoti" className="editTabsNews">
                                         <Tab eventKey="listOtherNoti" title="การแจ้งเตือนอื่น ๆ" className="styleTabNews"> */}
                                     <ListOtherNotifications />

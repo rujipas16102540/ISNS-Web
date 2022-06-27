@@ -23,7 +23,7 @@ export default class Left extends Component {
                 <Col md={2} className="left">
                     <div style={{ textAlign: "center", margin: "20px" }}>
                         {/* <img src={Logo} style={{ width: "50%", height: "auto", borderRadius: "50%", border: "3px solid rgb(100, 100, 100)" }} /> */}
-                        <img src={Logo} style={{ width: "50%", height: "auto", borderRadius: "50%", border: "3px solid rgb(100, 100, 100)" }} />
+                        <img src={Logo} style={{ width: "50%", height: "auto", borderRadius: "50%", border: "3px solid black" }} />
                     </div>
                     <div style={{ padding: "10px", fontSize: "1em", textAlign: "center", fontWeight: "bold" }}>
                         ระบบแจ้งเตือนตารางงานอัจฉริยะ

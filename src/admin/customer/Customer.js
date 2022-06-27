@@ -291,7 +291,7 @@ export default class Customer extends Component {
 
 
     return (
-      <div className=" bgAdmin">
+      <div>
         <Desktop>
           <div className=" bgAdmin1" >
             <Row >
@@ -300,99 +300,11 @@ export default class Customer extends Component {
               </Col>
               <Col md={10} style={{ height: 'auto' }}>
                 <div style={{ margin: '1% 5%' }}>
-                  <div style={{ marginBottom: '15px', fontSize: "2em", fontWeight: "bold", padding: "10px 20px", color: "white", borderBottom: "2px solid white" }} >รายชื่อลูกค้า</div>
+                  <div style={{ marginBottom: '15px', fontSize: "2em", fontWeight: "bold", padding: "10px 20px", color: "black", borderBottom: "2px solid black" }} >รายชื่อลูกค้า</div>
                   <Tabs defaultActiveKey="User" className="editTabsCus">
                     <Tab eventKey="User" title="รายชื่อสมาชิก" className="styleTabCus">
                       <User />
                     </Tab>
-                    {/* <Tab eventKey="Customer" title="รายชื่อลูกค้า" className="styleTabCus">
-                      <CardBody >
-                        <MDBDataTable
-                          // entriesOptions={[5, 10]}
-                          className="data-table-customer"
-                          small
-                          striped
-                          bordered
-                          hover
-                          data={data}
-                        />
-                      </CardBody>
-
-                      <Modal show={this.state.show} size="lg" aria-labelledby="contained-modal-title-vcenter" centered className="modal-style">
-                        <Modal.Body>
-                          <Form style={{ padding: "20px 10px" }}>
-                            <Row >
-                              <Col style={{ padding: "5px" }}>
-                                <Form.Group>
-                                  <Form.Label>ชื่อ</Form.Label>
-                                  <Form.Control
-                                    onChange={this.handleChange.bind(this, "first_name")}
-                                    name="first_name"
-                                    value={this.state.customer_modal.first_name}
-                                    type="text"
-                                    placeholder="ชื่อ" />
-                                </Form.Group>
-                              </Col>
-                              <Col style={{ padding: "5px" }}>
-                                <Form.Group >
-                                  <Form.Label>นามสกุล</Form.Label>
-                                  <Form.Control
-                                    onChange={this.handleChange.bind(this, "last_name")}
-                                    name="last_name"
-                                    value={this.state.customer_modal.last_name}
-                                    type="text"
-                                    placeholder="นามสกุล" />
-                                </Form.Group>
-                              </Col>
-                            </Row>
-                            <Row >
-                              <Col style={{ padding: "5px" }}>
-                                <Form.Group >
-                                  <Form.Label>อีเมล</Form.Label>
-                                  <Form.Control
-                                    onChange={this.handleChange.bind(this, "email")}
-                                    name="email"
-                                    value={this.state.customer_modal.email}
-                                    type="text"
-                                    placeholder="email" />
-                                </Form.Group>
-                              </Col>
-                              <Col style={{ padding: "5px" }}>
-                                <Form.Group >
-                                  <Form.Label>เบอร์โทรศัพท์</Form.Label>
-                                  <Form.Control
-                                    onChange={this.handleChange.bind(this, "phone_number")}
-                                    name="phone_number"
-                                    value={this.state.customer_modal.phone_number}
-                                    type="text"
-                                    placeholder="เบอร์โทรศัพท์" />
-                                </Form.Group>
-                              </Col>
-                            </Row>
-                            <Form.Group style={{ padding: "5px" }}>
-                              <Form.Label>ที่อยู่</Form.Label>
-                              <Form.Control
-                                onChange={this.handleChange.bind(this, "address")}
-                                name="address"
-                                value={this.state.customer_modal.address}
-                                type="text"
-                                placeholder="ที่อยู่" />
-                            </Form.Group>
-                          </Form>
-                        </Modal.Body>
-                        <Modal.Footer>
-                          <Button onClick={() => this.handleSubmit()} className="btn-confirm" style={{ marginRight: "5px" }}>
-                            บันทึก
-                          </Button>
-                          <Button onClick={() => { this.showModal() }} className="btn-cancel">
-                            ยกเลิก
-                          </Button>
-                        </Modal.Footer>
-                      </Modal>
-                    </Tab>
-                    <Tab eventKey="AddCstomer" title="เพิ่มลูกค้า" className="styleTabCus">
-                      <AddCustomer />
-                    </Tab> */}
                   </Tabs>
                 </div>
               </Col>

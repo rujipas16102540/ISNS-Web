@@ -3,7 +3,8 @@
 }
 
 .UserBG {
-    background-image: url("./image/queue.jpg");
+    /* background-image: url("./image/queue.jpg"); */
+    background-color: #E0DECA;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -16,7 +17,7 @@
     height: 100vh;
     padding: 0 15px !important;
     /* background-image: linear-gradient(rgb(99, 99, 99),  #eee, rgb(99, 99, 99)); */
-    background: rgba(255, 255, 255, 0.6);
+    background: #C7D36F;
     backdrop-filter: blur(5px);
     box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.5);
 
@@ -27,21 +28,23 @@
 
 
 .Userform {
+    background-color: #C7D36F;
     /* background-image: linear-gradient(rgb(99, 99, 99),  #eee, rgb(99, 99, 99)); */
-    background: rgba(0, 0, 0, 0.8);
+    /* background: rgba(0, 0, 0, 0.8); */
     /* background-image: url("bg1.jpg"); */
-    border: 2px solid rgb(99, 99, 99);
+    /* border: 2px solid rgb(99, 99, 99); */
     /* opacity: 1; */
-    color: white;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.65);
+    color: black;
     padding: 20px;
     border-radius: 15px;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.5);
 
 }
 
 .bg-register {
     /* background-repeat: repeat-x; */
-    background-image: url("./image/register.jpg");
+    background-color: #FCF9C6;
+    /* background-image: url("./image/register.jpg"); */
     /* opacity:0.2; */
     height: auto;
     width: auto;
@@ -52,11 +55,12 @@
 
 
 .UserLoginform {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: #C7D36F;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.65);
     /* Black w/opacity/see-through */
     color: black;
     font-weight: bold;
-    border: 3px solid #fff;
+    /* border: 3px solid #fff; */
     border-radius: 5px;
     position: absolute;
     top: 60%;
@@ -70,13 +74,14 @@
 }
 
 .UserLoginformMobile {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.65);
     margin: auto;
     width: 80%;
     font-weight: bold;
     background-color: rgba(255, 255, 255, 0.6);
     color: black;
     padding: 15px;
-    border: 3px solid #f1f1f1;
+    /* border: 3px solid #f1f1f1; */
     border-radius: 5px;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -91,10 +96,12 @@
 
 
 .UserLoginHeader {
-    background-color: rgba(255, 255, 255, 0.6);
+    /* background-color: rgba(255, 255, 255, 0.6); */
+    background-color: #C7D36F;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
     /* Black w/opacity/see-through */
     color: black;
-    border-bottom: 3px solid #f1f1f1;
+    /* border-bottom: 3px solid #f1f1f1; */
     padding: 20px;
     display: flex;
     backdrop-filter: blur(5px);
@@ -148,6 +155,10 @@ label {
 
     .fontSizeForm {
         font-size: 30px;
+    }
+
+    .UserBG {
+        height: 100vh;
     }
 }
 
@@ -251,7 +262,7 @@ select {
 } */
 .editTabsUserQueue>a:hover {
     color: black;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #FCF9C6;
     /* background-color: rgb(150,150,150); */
     border-color: rgb(255, 255, 255);
     backdrop-filter: blur(5px)
@@ -259,15 +270,26 @@ select {
 
 .editTabsUserQueue>a.nav-link.active {
     color: black;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #C7D36F;
     /* background-color: rgb(150,150,150); */
-    border-color: rgb(255, 255, 255);
+    border-color: #C7D36F;
     backdrop-filter: blur(5px)
 }
 
 .editTabsUserQueue>a {
-    color: white;
+    color: black;
+}
 
+.styleTabUserQueue {
+    background: #C7D36F;
+    border-radius: 0 0 8px 8px;
+    backdrop-filter: blur(5px);
+    border: 1px solid #C7D36F;
+}
+
+.editTabsUserQueue.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    border-color: #C7D36F;
 }
 
 
@@ -293,17 +315,6 @@ select {
     border-color: #f1f1f1;
 }
 
-.styleTabUserQueue {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 0 0 8px 8px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgb(255, 255, 255);
-}
-
-.editTabsUserQueue.nav-tabs .nav-link:focus,
-.nav-tabs .nav-link:hover {
-    border-color: rgb(255, 255, 255);
-}
 
 
 .data-table-userQueueMobile>div:nth-child(2)>div>div>table>thead>tr>th:nth-child(1) {

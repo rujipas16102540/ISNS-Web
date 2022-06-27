@@ -411,7 +411,7 @@ export default class NavLeftUser extends Component {
     render() {
         let { userInfo } = this.state
         return (
-            <div>
+            <div >
                 {/* แก้ไขข้อมูลส่วนตัว */}
                 <Modal show={this.state.show} size="lg" aria-labelledby="contained-modal-title-vcenter" centered className="modal-style">
                     <Modal.Body>
