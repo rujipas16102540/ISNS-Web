@@ -10,6 +10,7 @@ import { FaUser, FaLock } from 'react-icons/fa';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import Logo from './image/LogoProject.png'
 import { useMediaQuery } from 'react-responsive'
+import '../component/Loader.css'
 
 
 const Desktop = ({ children }) => {
@@ -30,17 +31,19 @@ export default class Login extends Component {
         username: "",
         password: "",
       },
+      loader: false
     };
   }
 
   login = async () => {
-    let { login } = this.state;
+    let { login, loader } = this.state;
+    this.setState({ loader: true })
     const data = new FormData()
     data.append("username", login.username)
     data.append("password", login.password)
     try {
       let url = API_URL + "/user/login"
-      Axios.post(url, data).then(function (res) {
+      await Axios.post(url, data).then(function (res) {
         if (res.data.status == 1) {
           localStorage.setItem("username", res.data.data.username)
           localStorage.setItem("password", res.data.data.password)
@@ -72,8 +75,11 @@ export default class Login extends Component {
           })
         }
       }.bind(this))
+      this.setState({ loader: false })
+    } catch (error) {
+      this.setState({ loader: false })
+    }
 
-    } catch (error) { }
   };
 
   handleChange = (action, value) => {
@@ -88,6 +94,12 @@ export default class Login extends Component {
     return (
       <div>
         <Desktop>
+          {this.state.loader &&
+            <div className="bg-loader" >
+              <div className='loader'></div>
+            </div>
+          }
+
           <div className="UserBG" style={{ height: "100vh" }}>
             <div className="UserLoginHeader">
               <Row>
@@ -102,6 +114,8 @@ export default class Login extends Component {
               </Row>
             </div>
             <div className='UserLoginform'>
+
+
               <Form>
                 <div className="fontSizeForm">เข้าสู่ระบบ</div>
                 <Form.Group >
@@ -123,12 +137,12 @@ export default class Login extends Component {
                   </Row>
                 </Form.Group>
                 <div style={{ justifyContent: 'center', display: 'flex' }}>
-
                   <Button className="btn-confirm" onClick={this.login} >
                     <div className="inside-btn-confirm">
                       เข้าสู่ระบบ
                     </div>
                   </Button>
+
                 </div>
                 <div style={{ justifyContent: "center", display: "flex", paddingTop: '10px', color: "f1f1f1" }}>
                   สมัครสามชิกเพื่อเข้าสู่ระบบ &nbsp;

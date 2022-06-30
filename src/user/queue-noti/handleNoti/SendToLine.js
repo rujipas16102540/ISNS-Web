@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
-import { Form, Row, Col, Button } from 'react-bootstrap'
+import { Form, Row, Col, Button, Spinner } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { API_URL } from '../../../config/config'
@@ -44,7 +44,7 @@ export default class SendToLine extends Component {
                 }).then(async (result) => {
                     if (result.value) {
                         let url = API_URL + "/news/line_noti"
-                        Axios.post(url, data).then(function (res) {
+                        await Axios.post(url, data).then(function (res) {
                             if (res.data.status == 1) {
                                 Swal.fire(
                                     'ประชาสัมพันธ์ไปที่ Line สำเร็จ',
@@ -91,6 +91,7 @@ export default class SendToLine extends Component {
                         <Button onClick={this.handleSubmit} className="btn-confirm">
                             ส่งข่าวสาร
                         </Button>
+
                     </div>
                 </Form>
 

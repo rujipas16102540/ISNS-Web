@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Form, Row, Col, Button, Image, Modal, InputGroup, Container } from 'react-bootstrap'
 import Axios from 'axios'
 import { API_URL } from '../config/config'
+import "../component/Loader.css"
 import Swal from 'sweetalert2'
 import { useMediaQuery } from 'react-responsive'
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
@@ -43,11 +44,14 @@ export default class Register extends Component {
                 phone_number: "",
                 user_type: "2"
             },
+            loader: false
         };
     }
 
     handleSubmit = async () => {
         let { userInfo } = this.state;
+
+
         let validationUser_Pass = /^[a-zA-Z0-9.]*$/
         let validationName = /^[ก-๙]+$/
         let validationEmail = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
@@ -82,6 +86,7 @@ export default class Register extends Component {
                                             cancelButtonText: 'ยกเลิก'
                                         }).then(async (result) => {
                                             if (result.value) {
+                                                this.setState({ loader: true })
                                                 let url = API_URL + "/user/register"
                                                 Axios.post(url, data).then(function (res) {
                                                     console.log(res.data.message)
@@ -98,15 +103,20 @@ export default class Register extends Component {
                                                     } else if (res.data.status == 0) {
                                                         Swal.fire({
                                                             icon: 'warning',
-                                                            title: 'ชื่อผู้ใช้งาน หรือ Email มีอยู่แล้ว  ',
+                                                            title: 'ชื่อผู้ใช้งาน มีอยู่แล้ว  ',
                                                             confirmButtonColor: '#218838',
                                                             confirmButtonText: 'ตกลง',
                                                         })
+                                                        this.setState({ loader: false })
                                                     }
                                                 }.bind(this))
                                             }
                                         })
+                                        this.setState({ loader: false })
+
                                     } catch (error) {
+                                        this.setState({ loader: false })
+
                                     }
                                 } else {
                                     Swal.fire({
@@ -116,6 +126,7 @@ export default class Register extends Component {
                                         confirmButtonText: 'ตกลง',
                                     })
                                     console.log("ที่อยู่ไม่ถูกต้อง")
+                                    this.setState({ loader: false })
                                 }
                             } else {
                                 Swal.fire({
@@ -125,6 +136,7 @@ export default class Register extends Component {
                                     confirmButtonText: 'ตกลง',
                                 })
                                 console.log("เบอร์โทรศัพท์ไม่ถูกต้อง")
+                                this.setState({ loader: false })
                             }
                         } else {
                             Swal.fire({
@@ -134,6 +146,7 @@ export default class Register extends Component {
                                 confirmButtonText: 'ตกลง',
                             })
                             console.log("อีเมลไม่ถูกต้อง")
+                            this.setState({ loader: false })
                         }
                     } else {
                         Swal.fire({
@@ -143,6 +156,7 @@ export default class Register extends Component {
                             confirmButtonText: 'ตกลง',
                         })
                         console.log("ชื่อควรเป็นภาษาไทย")
+                        this.setState({ loader: false })
                     }
                 } else {
                     Swal.fire({
@@ -152,6 +166,7 @@ export default class Register extends Component {
                         confirmButtonText: 'ตกลง',
                     })
                     console.log("ชื่อผู้ใช้งานหรือรหัสผ่านควรเป็น a-z,A-Z,0-9")
+                    this.setState({ loader: false })
                 }
             } else {
                 Swal.fire({
@@ -160,6 +175,7 @@ export default class Register extends Component {
                     confirmButtonColor: '#218838',
                     confirmButtonText: 'ตกลง',
                 })
+                this.setState({ loader: false })
             }
         } else {
             Swal.fire({
@@ -168,6 +184,7 @@ export default class Register extends Component {
                 confirmButtonColor: '#218838',
                 confirmButtonText: 'ตกลง',
             })
+            this.setState({ loader: false })
         }
     };
 
@@ -187,6 +204,11 @@ export default class Register extends Component {
 
         return (
             <div>
+                {this.state.loader &&
+                    <div className="bg-loader" >
+                        <div className='loader'></div>
+                    </div>
+                }
                 <Desktop>
                     <div className="bg-register" style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", backdropFilter: "blur(5px)" }}>
                         <div className='Userform'>
