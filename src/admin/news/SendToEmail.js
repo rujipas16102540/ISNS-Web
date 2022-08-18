@@ -49,8 +49,8 @@ export default class SendToEmail extends Component {
         console.log(newsInfo)
         if (newsInfo.header) {
             const data = new FormData();
+
             let body = draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
-            console.log("1", body)
             data.append("header", newsInfo.header)
             data.append("body", body)
 

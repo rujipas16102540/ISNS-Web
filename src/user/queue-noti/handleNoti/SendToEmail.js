@@ -44,9 +44,6 @@ export default class SendToEmail extends Component {
             data.append("header", newsInfo.header)
             data.append("body", body)
             data.append("topic", localStorage.getItem('header'))
-            console.log(data.get('header'))
-            console.log(data.get('topic'))
-            console.log(data.get('body'))
 
             try {
                 Swal.fire({

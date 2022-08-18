@@ -225,37 +225,7 @@ export default class index extends Component {
                         </div>
                         <div>
                             <MobileError />
-
                         </div>
-
-                        {/* <Row >
-                            <Tabs defaultActiveKey="st_user" style={{ border: "unset" }} >
-                                <Tab eventKey="st_user" title="รายชื่อทั้งหมด" className="styleTabUserQueue">
-                                    <CardBody >
-                                        <MDBDataTable
-                                            className="data-table-user"
-                                            small
-                                            striped
-                                            bordered
-                                            hover
-                                            data={data}
-                                        />
-                                    </CardBody>
-                                </Tab>
-                                {this.state.lst_noti.send_message === "true" ? <Tab eventKey="news" title="ประชาสัมพันธ์" className="styleTabUserQueue">
-                                    <SendToEmail />
-                                    <SendToLine />
-                                </Tab> : <></>}
-                                {this.state.lst_noti.setting_noti === "true" ? <Tab eventKey="setting_noti" title="ตั้งเวลาแจ้งเตือน" className="styleTabUserQueue">
-                                    <SettingNoti />
-                                    <ListSettingNoti />
-                                </Tab> : <></>}
-
-                                <Tab eventKey="approve" title="การอนุมัติ" className="styleTabUserQueue">
-                                    <Approve />
-                                </Tab>
-                            </Tabs>
-                        </Row > */}
                     </div >
                 </Mobile>
 
