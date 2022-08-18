@@ -12,7 +12,7 @@ export default class ListOtherServices extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            type_noti: "noti",
+            type_noti: "true",
             posts: [],
             isLoading: true,
             tableRows: [],
@@ -36,6 +36,46 @@ export default class ListOtherServices extends Component {
             });
     }
 
+
+
+    handleSubmit = (type_noti, header) => {
+        localStorage.setItem("header", header)
+
+        console.log(this.state.type_noti)
+        console.log(header)
+        console.log(this.state.username)
+        Swal.fire({
+            icon: 'question',
+            title: 'ต้องการรับบริการหรือไม่',
+            showCancelButton: true,
+            confirmButtonColor: '#218838',
+            cancelButtonColor: '#c82333',
+            confirmButtonText: 'ยืนยัน',
+            cancelButtonText: 'ยกเลิก'
+        }).then(async (result) => {
+            if (result.value) {
+                let data = new FormData()
+                data.append("header", header)
+                data.append("username", this.state.username)
+                data.append("type_noti", this.state.type_noti)
+                let url = API_URL + "/user/update_type_noti";
+                await Axios.post(url, data).then(function (res) {
+                    window.location.assign("/userqueue")
+                    // if (res.data === "Success") {
+                    // Swal.fire({
+                    //     icon: 'success',
+                    //     title: 'รอพนักงานอนุมัติอีกครั้ง',
+                    //     confirmButtonColor: '#218838',
+                    //     confirmButtonText: 'ตกลง',
+                    // }).then(() => {
+                    // window.location.assign("/userqueue")
+                    // })
+                    // }
+                })
+            }
+        })
+    }
+
     assemblePosts = () => {
         let posts = this.state.posts.map((index, i) => {
             // if (index.user_type !== 1) {
@@ -51,43 +91,6 @@ export default class ListOtherServices extends Component {
             // }
         });
         return posts;
-    }
-
-    handleSubmit = (type_noti, header) => {
-        console.log(type_noti)
-        console.log(header)
-        console.log(this.state.username)
-        localStorage.setItem("header", header)
-        Swal.fire({
-            icon: 'question',
-            title: 'ต้องการรับบริการหรือไม่',
-            showCancelButton: true,
-            confirmButtonColor: '#218838',
-            cancelButtonColor: '#c82333',
-            confirmButtonText: 'ยืนยัน',
-            cancelButtonText: 'ยกเลิก'
-        }).then(async (result) => {
-            if (result.value) {
-                let data = new FormData()
-                data.append("header", header)
-                data.append("username", this.state.username)
-                data.append("type_noti", type_noti)
-                let url = API_URL + "/user/update_type_noti";
-                await Axios.post(url, data).then(function (res) {
-                    window.location.assign("/userqueue")
-                    // if (res.data === "Success") {
-                    //     Swal.fire({
-                    //         icon: 'success',
-                    //         title: 'รอพนักงานอนุมัติอีกครั้ง',
-                    //         confirmButtonColor: '#218838',
-                    //         confirmButtonText: 'ตกลง',
-                    //     }).then(() => {
-                    //         window.location.assign("/userqueue")
-                    //     })
-                    // }
-                })
-            }
-        })
     }
 
     render() {

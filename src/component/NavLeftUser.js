@@ -313,7 +313,7 @@ export default class NavLeftUser extends Component {
         })
     }
     delNoti = () => {
-        console.log('lst_email :  ', this.state.lst_email)
+        console.log('test  ', this.state.userInfo.header)
         Swal.fire({
             icon: 'question',
             title: 'ต้องการลบบริการหรือไม่?',
@@ -326,22 +326,26 @@ export default class NavLeftUser extends Component {
             if (result.value) {
                 /////Update header type_noti user//////
                 let data1 = new FormData();
-                data1.append("email", this.state.lst_email)
-                data1.append("header", null)
-                data1.append("type_noti", null)
-                data1.append("status", null)
+                // data1.append("email", this.state.lst_email)
+                data1.append("header", this.state.userInfo.header)
+                // data1.append("type_noti", null)
+                // data1.append("status", null)
                 let url = API_URL + "/user/re_user";
                 Axios.post(url, data1).then(function (res) {
+
                     //////Delete Noti/////////
                     let del_noti = new FormData
                     del_noti.append("other_noti_id", this.state.lst_noti.other_noti_id)
                     let url_del_noti = API_URL + "/other_noti/delete_noti"
                     Axios.post(url_del_noti, del_noti)
+
                     //////Delet Queue////////
                     let del_queue_user = new FormData
                     del_queue_user.append("header", localStorage.getItem("header"))
                     let url_del_queue = API_URL + "/queue/del_by_header"
                     Axios.post(url_del_queue, del_queue_user)
+
+
                     //////Delete Setting Noti By Header ////////////
                     let del_setting_noti = new FormData
                     del_setting_noti.append("header", localStorage.getItem("header"))
@@ -355,8 +359,8 @@ export default class NavLeftUser extends Component {
                         confirmButtonText: 'ตกลง',
                     }).then(() => {
                         window.location.assign("/userqueue")
-
                     })
+
                 }.bind(this))
 
 

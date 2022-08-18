@@ -100,7 +100,8 @@ export default class Approve extends Component {
                         last_name: res.data.data.last_name,
                         email: res.data.data.email,
                         line_uid: res.data.data.line_uid,
-                        drescription: res.data.data.drescription
+                        drescription: res.data.data.drescription,
+                        phone_number: res.data.data.phone_number
                     }
                 })
             }.bind(this))

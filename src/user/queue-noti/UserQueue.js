@@ -67,6 +67,7 @@ export default class UserQueue extends Component {
             },
             btnRadio: {},
             service: {},
+            loader: false
         };
 
         this.handleChangeDate = this.handleChangeDate.bind(this);
@@ -213,7 +214,8 @@ export default class UserQueue extends Component {
                             if (result.value) {
                                 let url = API_URL + "/queue/save_queue"
                                 Axios.post(url, data).then(function (res) {
-                                    window.location.assign(`https://line-login-6827c.web.app/`)  // ทดสอบหลังเอาขึ้น servr
+                                    // window.location.assign(`https://line-login-6827c.web.app/`)  // ทดสอบหลังเอาขึ้น servr
+                                    window.location.assign(`https://line-login-heroku-114a5.web.app/`)
 
                                     // window.location.assign(`https://isns-project.web.app`)  // ทดสอบหลังเอาขึ้น servr
                                 }.bind(this))
@@ -489,12 +491,11 @@ export default class UserQueue extends Component {
     };
 
     componentDidMount = async () => {
-        const { user_id, username } = this.state;
+        const { user_id, username, loader } = this.state;
         if (this.state.username === null && this.state.password === null) {
             window.location.href = "/";
         }
-
-
+        this.setState({ loader: true })
         /////////////// list user by id ////////////////////////////
         try {
             const data = new FormData();
@@ -507,7 +508,9 @@ export default class UserQueue extends Component {
                 console.log('userInfo', this.state.userInfo.header)
 
             }.bind(this))
-        } catch (error) { }
+        } catch (error) {
+
+        }
 
         ///////////////// list queue มาดักจองได้ครั้งละ 1 ครั้ง ////////////////////
         try {
@@ -571,7 +574,9 @@ export default class UserQueue extends Component {
             }.bind(this))
             // console.log('lst_noti', this.state.lst_noti)
         } catch (error) { }
+        this.setState({ loader: false })
     }
+
     handleChangeRadio = (name, value) => {
         let { btnRadio } = this.state
         btnRadio[name] = value
@@ -678,110 +683,6 @@ export default class UserQueue extends Component {
                         </Modal.Body>
                     </div>
                 </Modal>
-                {/* แก้ไขข้อมูลส่วนตัว */}
-                <Modal show={this.state.show} size="lg" aria-labelledby="contained-modal-title-vcenter" centered className="modal-style">
-                    <Modal.Body>
-                        <Form style={{ padding: "20px 10px" }}>
-                            <Row >
-                                <Col style={{ padding: "5px" }}>
-                                    <Form.Group>
-                                        <Form.Label>ชื่อ</Form.Label>
-                                        <Form.Control
-                                            onChange={this.handleChangeInModal.bind(this, "first_name")}
-                                            name="first_name"
-                                            value={this.state.user_modal.first_name}
-                                            type="text"
-                                            placeholder="ชื่อ" />
-                                    </Form.Group>
-                                </Col>
-                                <Col style={{ padding: "5px" }}>
-                                    <Form.Group >
-                                        <Form.Label>นามสกุล</Form.Label>
-                                        <Form.Control
-                                            onChange={this.handleChangeInModal.bind(this, "last_name")}
-                                            name="last_name"
-                                            value={this.state.user_modal.last_name}
-                                            type="text"
-                                            placeholder="นามสกุล" />
-                                    </Form.Group>
-                                </Col>
-                            </Row>
-                            <Row >
-                                <Col style={{ padding: "5px" }}>
-                                    <Form.Group >
-                                        <Form.Label>อีเมล</Form.Label>
-                                        <Form.Control
-                                            onChange={this.handleChangeInModal.bind(this, "email")}
-                                            name="email"
-                                            value={this.state.user_modal.email}
-                                            type="text"
-                                            placeholder="email" />
-                                    </Form.Group>
-                                </Col>
-                                <Col style={{ padding: "5px" }}>
-                                    <Form.Group >
-                                        <Form.Label>เบอร์โทรศัพท์</Form.Label>
-                                        <Form.Control
-                                            onChange={this.handleChangeInModal.bind(this, "phone_number")}
-                                            name="phone_number"
-                                            value={this.state.user_modal.phone_number}
-                                            type="text"
-                                            placeholder="เบอร์โทรศัพท์" />
-                                    </Form.Group>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <Form.Group style={{ padding: "5px" }}>
-                                        <Form.Label>ที่อยู่</Form.Label>
-                                        <Form.Control
-                                            onChange={this.handleChangeInModal.bind(this, "address")}
-                                            name="address"
-                                            value={this.state.user_modal.address}
-                                            type="text"
-                                            placeholder="ที่อยู่" />
-                                    </Form.Group>
-                                </Col>
-                                <Col>
-                                    <Form.Group style={{ padding: "5px" }}>
-                                        <Form.Label>รหัสผ่าน</Form.Label>
-                                        <Row>
-                                            <Col style={{ marginRight: "5px" }}>
-                                                <Form.Control
-                                                    type={this.state.showPassword ? "text" : "password"}
-                                                    placeholder="รหัสผ่าน" onChange={this.handleChangeInModal.bind(this, "password")}
-                                                    name="password"
-                                                    value={this.state.user_modal.password}
-                                                // placeholder="รหัสผ่าน"
-                                                />
-                                            </Col>
-                                            <Col style={{ marginLeft: "5px" }}>
-                                                <Form.Control
-                                                    type={this.state.showPassword ? "text" : "password"}
-                                                    onChange={this.handleChangeInModal.bind(this, "confirm_password")}
-                                                    name="confirm_password"
-                                                    placeholder="ยืนยันรหัสผ่าน" />
-                                                <div style={{ position: "absolute", right: "12px", top: "0px", color: "black", alignItems: "center", display: "flex", height: "calc(1.5em + .75rem + 2px)" }}
-                                                    onClick={() => this.setState({ showPassword: !this.state.showPassword })}>
-                                                    {this.state.showPassword ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-                                                </div>
-                                            </Col>
-                                        </Row>
-                                    </Form.Group>
-                                </Col>
-                            </Row>
-                        </Form>
-                        <div style={{ justifyContent: 'center', display: 'flex' }}>
-
-                            <Button onClick={() => this.handleSubmitEdit()} className="btn-confirm" style={{ marginRight: "5px" }}>
-                                บันทึก
-                            </Button>
-                            <Button onClick={() => { this.showModal() }} className="btn-cancel">
-                                ยกเลิก
-                            </Button>
-                        </div>
-                    </Modal.Body>
-                </Modal>
                 <Desktop>
                     <div className="UserBG">
 
@@ -790,136 +691,144 @@ export default class UserQueue extends Component {
                                 <NavLeftUser />
                             </Col>
                             <Col sm={10} style={{ color: "#212529" }}>
-                                {userInfo.type_noti === "true" ?
-                                    <div>
-                                        <div style={{ padding: "2% 15%" }}>
-                                            <CardBody className="styleTabUserQueue">
-                                                <div >
-                                                    <h1>{this.state.lst_noti.header}</h1>
-                                                </div>
-                                                <div >
-                                                    <h5>{this.state.lst_noti.drescription}</h5>
-                                                </div>
-                                                <Form >
-                                                    <Row >
-                                                        <Col sm={2} style={{ padding: "5px" }}>
-                                                            <Form.Group controlId="prefix">
-                                                                <Form.Label>คำนำหน้า</Form.Label>
-                                                                <Form.Control
-                                                                    value={this.state.userInfo.prefix} disabled />
-                                                            </Form.Group>
-                                                        </Col>
-                                                        <Col sm={5} style={{ padding: "5px" }}>
-                                                            <Form.Group controlId="name">
-                                                                <Form.Label>ชื่อ</Form.Label>
-                                                                <Form.Control
-                                                                    value={this.state.userInfo.first_name} disabled />
-                                                            </Form.Group>
-                                                        </Col>
-                                                        <Col sm={5} style={{ padding: "5px" }}>
-                                                            <Form.Group controlId="surname">
-                                                                <Form.Label>นามสกุล</Form.Label>
-                                                                <Form.Control
-                                                                    value={this.state.userInfo.last_name} disabled />
-                                                            </Form.Group>
-                                                        </Col>
-                                                    </Row>
-                                                    <Row >
-                                                        <Col sm={6} style={{ padding: "5px" }}>
-                                                            <Form.Group controlId="email">
-                                                                <Form.Label>อีเมล</Form.Label>
-                                                                <Form.Control value={this.state.userInfo.email} disabled />
-                                                            </Form.Group>
-                                                        </Col>
-                                                        <Col sm={6} style={{ padding: "5px" }}>
-                                                            <Form.Group controlId="phone_number">
-                                                                <Form.Label>เบอร์โทร</Form.Label>
-                                                                <Form.Control value={this.state.userInfo.phone_number} disabled />
-                                                            </Form.Group>
-                                                        </Col>
-                                                    </Row>
 
-                                                    {/* วันเวลาจองคิว */}
-                                                    {this.state.lst_noti.send_message === "true" ?
-                                                        <Row>
-                                                            <Col sm={6} style={{ padding: "5px" }}>
-                                                                <Form.Group>
-                                                                    <Form.Label>วันที่จองคิว</Form.Label>
-                                                                    <div>
-                                                                        <DatePicker
-                                                                            selected={this.state.start_date}
-                                                                            onChange={this.handleChangeDate}
-                                                                            dateFormat="d MMMM yyyy"
-                                                                            minDate={new Date()}
-                                                                            filterDate={date => date.getDay() != 6 && date.getDay() != 0}
-                                                                            className="form-control"
-                                                                            placeholderText="กำหนดการจองคิว"
-                                                                        />
-                                                                    </div>
-                                                                </Form.Group>
-                                                            </Col>
-                                                            <Col sm={6} style={{ padding: "5px" }}>
-                                                                <Form.Group >
-                                                                    <Form.Label>เวลาจองคิว </Form.Label>
-                                                                    <Form.Control as="select" onChange={e => this.handleChange('time', e.target.value)}>
-                                                                        <option disabled selected>เลือกเวลา</option>
-                                                                        {this.state.slc_hours.map((index, i) =>
-                                                                            <option value={index}>{index} น.</option>
-                                                                        )}
-                                                                    </Form.Control>
-                                                                </Form.Group>
-                                                            </Col>
-                                                        </Row>
-                                                        : <></>}
-                                                    {/* รายละเอียดเพิ่มเติม */}
-                                                    {this.state.lst_noti.comment === "true" ?
+                                {this.state.loader ?
+                                    <div className="bg-loader" >
+                                        <div className='loader'></div>
+                                    </div> : <>{userInfo.type_noti === "true" ?
+                                        <div>
+                                            <div style={{ padding: "2% 15%" }}>
+                                                <CardBody className="styleTabUserQueue">
+                                                    <div >
+                                                        <h1>{this.state.lst_noti.header}</h1>
+                                                    </div>
+                                                    <div >
+                                                        <h5>{this.state.lst_noti.drescription}</h5>
+                                                    </div>
+                                                    <Form >
                                                         <Row >
-                                                            <Col sm={12} style={{ padding: "5px" }}>
-                                                                <Form.Group >
-                                                                    <Form.Label> รายละเอียดเพิ่มเติม </Form.Label>
+                                                            <Col sm={2} style={{ padding: "5px" }}>
+                                                                <Form.Group controlId="prefix">
+                                                                    <Form.Label>คำนำหน้า</Form.Label>
                                                                     <Form.Control
-                                                                        onChange={(e) => this.handleChange("drescription", e.target.value)}
-                                                                        placeholder="รายละเอียดเพิ่มเติม" />
+                                                                        value={this.state.userInfo.prefix} disabled />
+                                                                </Form.Group>
+                                                            </Col>
+                                                            <Col sm={5} style={{ padding: "5px" }}>
+                                                                <Form.Group controlId="name">
+                                                                    <Form.Label>ชื่อ</Form.Label>
+                                                                    <Form.Control
+                                                                        value={this.state.userInfo.first_name} disabled />
+                                                                </Form.Group>
+                                                            </Col>
+                                                            <Col sm={5} style={{ padding: "5px" }}>
+                                                                <Form.Group controlId="surname">
+                                                                    <Form.Label>นามสกุล</Form.Label>
+                                                                    <Form.Control
+                                                                        value={this.state.userInfo.last_name} disabled />
                                                                 </Form.Group>
                                                             </Col>
                                                         </Row>
-                                                        : <></>}
+                                                        <Row >
+                                                            <Col sm={6} style={{ padding: "5px" }}>
+                                                                <Form.Group controlId="email">
+                                                                    <Form.Label>อีเมล</Form.Label>
+                                                                    <Form.Control value={this.state.userInfo.email} disabled />
+                                                                </Form.Group>
+                                                            </Col>
+                                                            <Col sm={6} style={{ padding: "5px" }}>
+                                                                <Form.Group controlId="phone_number">
+                                                                    <Form.Label>เบอร์โทร</Form.Label>
+                                                                    <Form.Control value={this.state.userInfo.phone_number} disabled />
+                                                                </Form.Group>
+                                                            </Col>
+                                                        </Row>
 
-                                                    <Row>
-                                                        <Col style={{ padding: "5px" }} >
-                                                            <Form.Label>
-                                                                ต้องการแจ้งเตือนผ่าน Line หรือไม่
-                                                            </Form.Label>
-                                                            <InputGroup.Prepend>
-                                                                <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 1)} />
-                                                                <Form.Label style={{ alignItems: "center", display: "flex" }}>ต้องการ</Form.Label>
-                                                                <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 2)} />
-                                                                <Form.Label style={{ alignItems: "center", display: "flex", }}>ไม่ต้องการ</Form.Label>
-                                                            </InputGroup.Prepend>
-                                                        </Col>
-                                                        <Col style={{ padding: "1.5%", justifyContent: "flex-end", display: "flex" }} >
-                                                            <Button onClick={this.handleSubmitQueueNoti} style={{ marginRight: "10px" }} className="btn-confirm">
-                                                                ยืนยันจองคิว
-                                                            </Button>
-                                                        </Col>
-                                                    </Row>
-                                                </Form>
-                                            </CardBody>
+                                                        {/* วันเวลาจองคิว */}
+                                                        {this.state.lst_noti.send_message === "true" ?
+                                                            <Row>
+                                                                <Col sm={6} style={{ padding: "5px" }}>
+                                                                    <Form.Group>
+                                                                        <Form.Label>วันที่จองคิว</Form.Label>
+                                                                        <div>
+                                                                            <DatePicker
+                                                                                selected={this.state.start_date}
+                                                                                onChange={this.handleChangeDate}
+                                                                                dateFormat="d MMMM yyyy"
+                                                                                minDate={new Date()}
+                                                                                filterDate={date => date.getDay() != 6 && date.getDay() != 0}
+                                                                                className="form-control"
+                                                                                placeholderText="กำหนดการจองคิว"
+                                                                            />
+                                                                        </div>
+                                                                    </Form.Group>
+                                                                </Col>
+                                                                <Col sm={6} style={{ padding: "5px" }}>
+                                                                    <Form.Group >
+                                                                        <Form.Label>เวลาจองคิว </Form.Label>
+                                                                        <Form.Control as="select" onChange={e => this.handleChange('time', e.target.value)}>
+                                                                            <option disabled selected>เลือกเวลา</option>
+                                                                            {this.state.slc_hours.map((index, i) =>
+                                                                                <option value={index}>{index} น.</option>
+                                                                            )}
+                                                                        </Form.Control>
+                                                                    </Form.Group>
+                                                                </Col>
+                                                            </Row>
+                                                            : <></>}
+                                                        {/* รายละเอียดเพิ่มเติม */}
+                                                        {this.state.lst_noti.comment === "true" ?
+                                                            <Row >
+                                                                <Col sm={12} style={{ padding: "5px" }}>
+                                                                    <Form.Group >
+                                                                        <Form.Label> รายละเอียดเพิ่มเติม </Form.Label>
+                                                                        <Form.Control
+                                                                            onChange={(e) => this.handleChange("drescription", e.target.value)}
+                                                                            placeholder="รายละเอียดเพิ่มเติม" />
+                                                                    </Form.Group>
+                                                                </Col>
+                                                            </Row>
+                                                            : <></>}
+                                                        {this.state.lst_noti.send_message === "true" ?
+                                                            <Row>
+                                                                <Col style={{ padding: "5px" }} >
+                                                                    <Form.Label>
+                                                                        ต้องการแจ้งเตือนผ่าน Line หรือไม่
+                                                                    </Form.Label>
+                                                                    <InputGroup.Prepend>
+                                                                        <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 1)} />
+                                                                        <Form.Label style={{ alignItems: "center", display: "flex" }}>ต้องการ</Form.Label>
+                                                                        <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 2)} />
+                                                                        <Form.Label style={{ alignItems: "center", display: "flex", }}>ไม่ต้องการ</Form.Label>
+                                                                    </InputGroup.Prepend>
+                                                                </Col>
+                                                                <Col style={{ padding: "1.5%", justifyContent: "flex-end", display: "flex" }} >
+                                                                    <Button onClick={this.handleSubmitQueueNoti} style={{ marginRight: "10px" }} className="btn-confirm">
+                                                                        ยืนยันจองคิว
+                                                                    </Button>
+                                                                </Col>
+                                                            </Row> : <><h3> *ประเภทของบริการเป็นการรับการแจ้งเตือนอย่างเดียว</h3></>
+                                                        }
+
+                                                    </Form>
+                                                </CardBody>
+                                            </div>
+                                        </div> :
+                                        <div>
+                                            <div style={{ padding: "2% 20%" }}>
+                                                <Tabs defaultActiveKey="SelectNoti" style={{ borderBottom: "1px solid rgb(150,150,150)", fontSize: "1.2em" }} className="editTabsUserQueue">
+                                                    <Tab eventKey="SelectNoti" title="เลือกบริการ" className="styleTabUserQueue">
+                                                        <SelectNoti />
+                                                    </Tab>
+                                                    <Tab eventKey="CreateNoti" title="สร้างบริการ" className="styleTabUserQueue">
+                                                        <CreateNoti />
+                                                    </Tab>
+                                                </Tabs>
+                                            </div>
                                         </div>
-                                    </div> :
-                                    <div>
-                                        <div style={{ padding: "2% 20%" }}>
-                                            <Tabs defaultActiveKey="SelectNoti" style={{ borderBottom: "1px solid rgb(150,150,150)", fontSize: "1.2em" }} className="editTabsUserQueue">
-                                                <Tab eventKey="SelectNoti" title="เลือกบริการ" className="styleTabUserQueue">
-                                                    <SelectNoti />
-                                                </Tab>
-                                                <Tab eventKey="CreateNoti" title="สร้างบริการ" className="styleTabUserQueue">
-                                                    <CreateNoti />
-                                                </Tab>
-                                            </Tabs>
-                                        </div>
-                                    </div>
+                                    }</>
                                 }
+
                             </Col>
                         </Row >
                     </div >
