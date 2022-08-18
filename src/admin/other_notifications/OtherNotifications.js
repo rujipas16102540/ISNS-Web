@@ -4,7 +4,6 @@ import { useMediaQuery } from 'react-responsive'
 import Navleft from "../../component/NavLeft"
 import MobileError from '../../component/MobileError';
 import ListOtherNotifications from './ListOtherNotifications';
-import AddOtherNotifications from './AddOtherNotifications';
 
 const Desktop = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 768 })
