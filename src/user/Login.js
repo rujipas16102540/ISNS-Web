@@ -108,7 +108,7 @@ export default class Login extends Component {
                   <img src={Logo} style={{ width: "100%", height: "auto", borderRadius: "50%", border: "3px solid #000" }} />
                 </Col>
                 <Col sm={11}>
-                  <div className="nameProTh">  แพลตฟอร์มการแจ้งเตือนงานอัจฉริยะกรณีศึกษาการจองคิวเช็คสภาพยานพาหนะ1</div>
+                  <div className="nameProTh">  แพลตฟอร์มการแจ้งเตือนงานอัจฉริยะกรณีศึกษาการจองคิวเช็คสภาพยานพาหนะ</div>
                   <div className="nameProEn">(Smart schedule notification platform case studies queue booking vehicle condition monitoring)</div>
                 </Col>
               </Row>
