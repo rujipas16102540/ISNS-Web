@@ -505,7 +505,7 @@ export default class UserQueue extends Component {
                 this.setState({
                     userInfo: res.data.data
                 })
-                console.log('userInfo', this.state.userInfo.header)
+                console.log('userInfo', this.state.userInfo)
 
             }.bind(this))
         } catch (error) {
@@ -528,12 +528,11 @@ export default class UserQueue extends Component {
                             lstQueue_id: data[i].queue_id
                         })
                     }
-
                 }
-
                 this.setState({
                     historyQueue: res.data.data,
                 })
+                console.log('first', this.state.historyQueue)
             }.bind(this))
         } catch (error) { }
 
@@ -572,7 +571,7 @@ export default class UserQueue extends Component {
                     lst_noti: res.data.data
                 })
             }.bind(this))
-            // console.log('lst_noti', this.state.lst_noti)
+            console.log('lst_noti', this.state.lst_noti)
         } catch (error) { }
         this.setState({ loader: false })
     }
@@ -743,77 +742,79 @@ export default class UserQueue extends Component {
                                                                 </Form.Group>
                                                             </Col>
                                                         </Row>
-
-                                                        {/* วันเวลาจองคิว */}
-                                                        {this.state.lst_noti.send_message === "true" ?
-                                                            <Row>
-                                                                <Col sm={6} style={{ padding: "5px" }}>
-                                                                    <Form.Group>
-                                                                        <Form.Label>วันที่จองคิว</Form.Label>
-                                                                        <div>
-                                                                            <DatePicker
-                                                                                selected={this.state.start_date}
-                                                                                onChange={this.handleChangeDate}
-                                                                                dateFormat="d MMMM yyyy"
-                                                                                minDate={new Date()}
-                                                                                filterDate={date => date.getDay() != 6 && date.getDay() != 0}
-                                                                                className="form-control"
-                                                                                placeholderText="กำหนดการจองคิว"
-                                                                            />
-                                                                        </div>
-                                                                    </Form.Group>
-                                                                </Col>
-                                                                <Col sm={6} style={{ padding: "5px" }}>
-                                                                    <Form.Group >
-                                                                        <Form.Label>เวลาจองคิว </Form.Label>
-                                                                        <Form.Control as="select" onChange={e => this.handleChange('time', e.target.value)}>
-                                                                            <option disabled selected>เลือกเวลา</option>
-                                                                            {this.state.slc_hours.map((index, i) =>
-                                                                                <option value={index}>{index} น.</option>
-                                                                            )}
-                                                                        </Form.Control>
-                                                                    </Form.Group>
-                                                                </Col>
-                                                            </Row>
-                                                            : <></>}
-                                                        {/* รายละเอียดเพิ่มเติม */}
-                                                        {this.state.lst_noti.comment === "true" ?
-                                                            <Row >
-                                                                <Col sm={12} style={{ padding: "5px" }}>
-                                                                    <Form.Group >
-                                                                        <Form.Label> รายละเอียดเพิ่มเติม </Form.Label>
-                                                                        <Form.Control
-                                                                            onChange={(e) => this.handleChange("drescription", e.target.value)}
-                                                                            placeholder="รายละเอียดเพิ่มเติม" />
-                                                                    </Form.Group>
-                                                                </Col>
-                                                            </Row>
-                                                            : <></>}
-                                                        {this.state.lst_noti.send_message === "true" ?
-                                                            <Row>
-                                                                <Col style={{ padding: "5px" }} >
-                                                                    <Form.Label>
-                                                                        ต้องการแจ้งเตือนผ่าน Line หรือไม่
-                                                                    </Form.Label>
-                                                                    <InputGroup.Prepend>
-                                                                        <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 1)} />
-                                                                        <Form.Label style={{ alignItems: "center", display: "flex" }}>ต้องการ</Form.Label>
-                                                                        <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 2)} />
-                                                                        <Form.Label style={{ alignItems: "center", display: "flex", }}>ไม่ต้องการ</Form.Label>
-                                                                    </InputGroup.Prepend>
-                                                                </Col>
-                                                                <Col style={{ padding: "1.5%", justifyContent: "flex-end", display: "flex" }} >
-                                                                    <Button onClick={this.handleSubmitQueueNoti} style={{ marginRight: "10px" }} className="btn-confirm">
-                                                                        ยืนยันจองคิว
-                                                                    </Button>
-                                                                </Col>
-                                                            </Row> : <><h3> *ประเภทของบริการเป็นการรับการแจ้งเตือนอย่างเดียว</h3></>
-                                                        }
+                                                        {this.state.lstStatus === null ?
+                                                            <> {/* วันเวลาจองคิว */}
+                                                                {this.state.lst_noti.send_message === "true" ?
+                                                                    <Row>
+                                                                        <Col sm={6} style={{ padding: "5px" }}>
+                                                                            <Form.Group>
+                                                                                <Form.Label>วันที่จองคิว</Form.Label>
+                                                                                <div>
+                                                                                    <DatePicker
+                                                                                        selected={this.state.start_date}
+                                                                                        onChange={this.handleChangeDate}
+                                                                                        dateFormat="d MMMM yyyy"
+                                                                                        minDate={new Date()}
+                                                                                        filterDate={date => date.getDay() != 6 && date.getDay() != 0}
+                                                                                        className="form-control"
+                                                                                        placeholderText="กำหนดการจองคิว"
+                                                                                    />
+                                                                                </div>
+                                                                            </Form.Group>
+                                                                        </Col>
+                                                                        <Col sm={6} style={{ padding: "5px" }}>
+                                                                            <Form.Group >
+                                                                                <Form.Label>เวลาจองคิว </Form.Label>
+                                                                                <Form.Control as="select" onChange={e => this.handleChange('time', e.target.value)}>
+                                                                                    <option disabled selected>เลือกเวลา</option>
+                                                                                    {this.state.slc_hours.map((index, i) =>
+                                                                                        <option value={index}>{index} น.</option>
+                                                                                    )}
+                                                                                </Form.Control>
+                                                                            </Form.Group>
+                                                                        </Col>
+                                                                    </Row>
+                                                                    : <></>}
+                                                                {/* รายละเอียดเพิ่มเติม */}
+                                                                {this.state.lst_noti.comment === "true" ?
+                                                                    <Row >
+                                                                        <Col sm={12} style={{ padding: "5px" }}>
+                                                                            <Form.Group >
+                                                                                <Form.Label> รายละเอียดเพิ่มเติม </Form.Label>
+                                                                                <Form.Control
+                                                                                    onChange={(e) => this.handleChange("drescription", e.target.value)}
+                                                                                    placeholder="รายละเอียดเพิ่มเติม" />
+                                                                            </Form.Group>
+                                                                        </Col>
+                                                                    </Row>
+                                                                    : <></>}
+                                                                {this.state.lst_noti.send_message === "true" ?
+                                                                    <Row>
+                                                                        <Col style={{ padding: "5px" }} >
+                                                                            <Form.Label>
+                                                                                ต้องการแจ้งเตือนผ่าน Line หรือไม่
+                                                                            </Form.Label>
+                                                                            <InputGroup.Prepend>
+                                                                                <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 1)} />
+                                                                                <Form.Label style={{ alignItems: "center", display: "flex" }}>ต้องการ</Form.Label>
+                                                                                <InputGroup.Radio name={"line_check"} onChange={(e) => this.handleChangeRadio("line_check", 2)} />
+                                                                                <Form.Label style={{ alignItems: "center", display: "flex", }}>ไม่ต้องการ</Form.Label>
+                                                                            </InputGroup.Prepend>
+                                                                        </Col>
+                                                                        <Col style={{ padding: "1.5%", justifyContent: "flex-end", display: "flex" }} >
+                                                                            <Button onClick={this.handleSubmitQueueNoti} style={{ marginRight: "10px" }} className="btn-confirm">
+                                                                                ยืนยันจองคิว
+                                                                            </Button>
+                                                                        </Col>
+                                                                    </Row> : <><h3> *ประเภทของบริการเป็นการรับการแจ้งเตือนอย่างเดียว</h3></>
+                                                                }</> :
+                                                            <>*ท่านได้ทำการจอคิวไว้แล้ว</>}
 
                                                     </Form>
                                                 </CardBody>
                                             </div>
                                         </div> :
+                                        ///////// select ///// create ////////
                                         <div>
                                             <div style={{ padding: "2% 20%" }}>
                                                 <Tabs defaultActiveKey="SelectNoti" style={{ borderBottom: "1px solid rgb(150,150,150)", fontSize: "1.2em" }} className="editTabsUserQueue">

@@ -25,8 +25,8 @@ export default class Left extends Component {
                         {/* <img src={Logo} style={{ width: "50%", height: "auto", borderRadius: "50%", border: "3px solid rgb(100, 100, 100)" }} /> */}
                         <img src={Logo} style={{ width: "50%", height: "auto", borderRadius: "50%", border: "3px solid black" }} />
                     </div>
-                    <div style={{ padding: "10px", fontSize: "1em", textAlign: "center", fontWeight: "bold" }}>
-                        ระบบแจ้งเตือนตารางงานอัจฉริยะ
+                    <div style={{ padding: "10px", fontSize: "1.3em", textAlign: "center", fontWeight: "bold" }}>
+                        ระบบแจ้งเตือนงานอัจฉริยะ
                     </div>
                     <div >
                         <ul style={{ padding: '10px', margin: '0px', fontSize: '1.5em', fontWeight: 'bold' }}>รายการ</ul>

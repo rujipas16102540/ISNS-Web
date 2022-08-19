@@ -562,6 +562,7 @@ export default class NavLeftUser extends Component {
                         {this.state.historyQueue.length === 0 ?
                             <></> :
                             <>
+                                {/* ////////// เช็คสาถนะว่าแอดมินอนุมัติยัง ///////////// */}
                                 {this.state.historyQueue.map((e, i) => {
                                     if (e.status !== "0" && e.approve == "1" && userInfo.type_noti === "true") {
                                         return (
